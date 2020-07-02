@@ -1,0 +1,39 @@
+{
+	"mainmenu": {
+		"items": [
+			{
+				"label": "Home",
+				"link": "/",
+				"new_window": false
+			},
+			{
+				"label": "Why is Leo CDP ?",
+				"link": "/why",
+				"new_window": false
+			},
+			{
+				"label": "Learn",
+				"link": "/learn",
+				"new_window": false
+			},
+			{
+				"label": "Download",
+				"link": "/download",
+				"new_window": false
+			},
+			{
+				"label": "Pricing",
+				"link": "pricing",
+				"new_window": true
+			},
+			{
+				"label": "Contact",
+				"link": "contact",
+				"new_window": true
+			}
+		]
+	},
+	"meta": {
+		"last_edited": 1501680325
+	}
+}
