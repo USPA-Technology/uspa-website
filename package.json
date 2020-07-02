@@ -10,5 +10,8 @@
 	"license": "MIT",
 	"dependencies": {
 		"enduro": "*"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.4"
 	}
 }
