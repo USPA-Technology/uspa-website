@@ -1,8 +1,8 @@
-{
+({
 	first_slide: {
-		header: 'Woooooow!',
+		header: 'Leo CDP',
 		tagline: 'Your first enduro.js project',
-		call_to_action: 'Scroll down to see what\'s up',
+		call_to_action: 'Scroll down to see what\'s up'
 	},
 	instruction_points: [
 		{
@@ -56,4 +56,4 @@
 			}
 		]
 	}
-}
+})

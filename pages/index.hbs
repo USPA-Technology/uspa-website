@@ -1,52 +1,116 @@
-<!DOCTYPE html>
+{{!-- <!DOCTYPE html>
 <html>
-	<head>
-		<title>enduro.js page</title>
-		<link rel="stylesheet" href="/assets/css/main.css">
-		<link href="https://fonts.googleapis.com/css?family=Lato:100,200" rel="stylesheet">
-		<style type="text/css"></style>
-	</head>
-	<body>
-		{{!-- intro --}}
-		{{#with first_slide}}
-			<section class="screen">
-				<div class="center_block">
-					<p class="huge">{{header}}</p>
-					<p>{{tagline}}</p>
-				</div>
 
-				<div class="bottom_block vertical_pulsate">
-					<p>{{call_to_action}}</p>
-				</div>
-			</section>
-		{{/with}}
+<head>
+	<title>enduro.js page</title>
+	<link rel="stylesheet" href="/assets/css/main.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:100,200" rel="stylesheet">
+	<style type="text/css"></style>
+</head>
 
-		{{#each instruction_points}}
-			<section class="screen half color{{divisible @index 2 '1' '2'}}">
-				<div class="center_block">
-					<p class="huge">{{header}}</p>
-					<p>{{tagline}}</p>
-					<a target="_blank" class="button" href="{{link}}">Learn more</a>
-				</div>
-			</section>
-		{{/each}}
-
-		{{#with so_much_more_block}}
-			<section class="screen half color1">
-				<div class="center_block">
-					<p class="huge">{{header}}</p>
-					<p>{{tagline}}</p>
-					<ul>
-						{{#each list_of_topics}}
-							<li>{{tagline}} <a target="_blank" href="">Here</a></li>
-						{{/each}}
+<body>
+	{{!-- intro --}}
+<div class="page__header--black">
+	<div class="row small-collapse">
+		<div class="column small-10 small-centered">
+			<div class="top-bar ">
+				<div class="top-bar-left">
+					<ul class="menu">
+						<li class="menu-text "> <b> Leo CDP </b> </li>
 					</ul>
 				</div>
-			</section>
-		{{/with}}
 
-		{{>footer}}
+				<div class="top-bar-right">
+					<ul class="dropdown menu vertical medium-horizontal" data-dropdown-menu="" role="menubar" data-ot="3fcwrm-ot">
+						<li class="navbar__link has-submenu is-dropdown-submenu-parent opens-left" role="menuitem"
+							aria-haspopup="true" aria-label="Why Hull"> <a href="#">Why Leo CDP</a>
+							<ul class="submenu menu vertical is-dropdown-submenu first-sub" data-submenu="" role="menubar">
+								<li class="navbar__link is-submenu-item is-dropdown-submenu-item" role="menuitem"> <a
+										href="/why/">Features</a> </li>
+								<li class="navbar__link is-submenu-item is-dropdown-submenu-item" role="menuitem"> <a
+										href="/integrations/">Integrations</a> </li>
+								<li class="navbar__link is-submenu-item is-dropdown-submenu-item" role="menuitem"> <a
+										href="/customers/">Customers</a> </li>
+							</ul>
+						</li>
+						<li class="navbar__link has-submenu is-dropdown-submenu-parent opens-left" role="menuitem"
+							aria-haspopup="true" aria-label="Learn"> <a href="#">Learn</a>
+							<ul class="submenu menu vertical is-dropdown-submenu first-sub" data-submenu="" role="menubar">
+								<li class="navbar__link is-submenu-item is-dropdown-submenu-item" role="menuitem"> <a
+										href="/use-cases/">Use
+										Cases</a> </li>
+								<li class="navbar__link is-submenu-item is-dropdown-submenu-item" role="menuitem"> <a
+										href="/docs/">Docs</a>
+								</li>
+								<li class="navbar__link is-submenu-item is-dropdown-submenu-item" role="menuitem"> <a
+										href="/docs/guides/">Guides</a> </li>
+								<li class="navbar__link is-submenu-item is-dropdown-submenu-item" role="menuitem"> <a
+										href="/blog">Blog</a>
+								</li>
+							</ul>
+						</li>
+						<li class="navbar__link " role="menuitem"> <a href="/pricing/">Pricing</a> </li>
+						<li class="navbar__link--login" role="menuitem"> <a class="logged-in button"
+								href="https://dashboard.hullapp.io" style="display: none;">Sign in</a><a class="logged-out"
+								href="https://dashboard.hullapp.io">Sign in</a>
+						</li>
 
-	</body>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
-</html>
+
+<div>
+	{{#with first_slide}}
+	<section class="screen">
+		<div class="center_block">
+			<p class="huge">{{header}}</p>
+			<p>{{tagline}}</p>
+		</div>
+
+		<div class="bottom_block vertical_pulsate">
+			<p>{{call_to_action}}</p>
+		</div>
+	</section>
+	{{/with}}
+
+	{{#each instruction_points}}
+	<section class="screen half color{{divisible @index 2 '1' '2'}}">
+		<div class="center_block">
+			<p class="huge">{{header}}</p>
+			<p>{{tagline}}</p>
+			<a target="_blank" class="button" href="{{link}}">Learn more</a>
+		</div>
+	</section>
+	{{/each}}
+
+	{{#with so_much_more_block}}
+	<section class="screen half color1">
+		<div class="center_block">
+			<p class="huge">{{header}}</p>
+			<p>{{tagline}}</p>
+			<ul>
+				{{#each list_of_topics}}
+				<li>{{tagline}} <a target="_blank" href="">Here</a></li>
+				{{/each}}
+			</ul>
+		</div>
+	</section>
+	{{/with}}
+
+	{{>footer}}
+</div>
+
+
+</body>
+
+</html> --}}
+
+{{#>body}}
+<div>
+	
+</div>
+{{/body}}
