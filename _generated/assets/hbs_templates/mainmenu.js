@@ -1,27 +1,3 @@
-define(["handlebars"], function(Handlebars) { return Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
-    var stack1, helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, alias3="function", alias4=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
-        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
-          return parent[propertyName];
-        }
-        return undefined
-    };
-
-  return "			<li>\n				<a "
-    + ((stack1 = (lookupProperty(helpers,"ternary")||(depth0 && lookupProperty(depth0,"ternary"))||alias2).call(alias1,(depth0 != null ? lookupProperty(depth0,"new_window") : depth0),"target=\"_blank\"",{"name":"ternary","hash":{},"data":data,"loc":{"start":{"line":9,"column":7},"end":{"line":9,"column":49}}})) != null ? stack1 : "")
-    + " href=\""
-    + alias4(((helper = (helper = lookupProperty(helpers,"link") || (depth0 != null ? lookupProperty(depth0,"link") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"link","hash":{},"data":data,"loc":{"start":{"line":9,"column":56},"end":{"line":9,"column":64}}}) : helper)))
-    + "\">"
-    + alias4(((helper = (helper = lookupProperty(helpers,"label") || (depth0 != null ? lookupProperty(depth0,"label") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"label","hash":{},"data":data,"loc":{"start":{"line":9,"column":66},"end":{"line":9,"column":75}}}) : helper)))
-    + "</a>\n			</li>\n";
-},"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
-        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
-          return parent[propertyName];
-        }
-        return undefined
-    };
-
-  return "<nav class=\"screen-menu\">\n	<label for=\"endrjs_collapsed_menu\" class=\"collapsed-menu\">\n		<i class=\"fa fa-bars\"></i>\n	</label>\n	<input id=\"endrjs_collapsed_menu\" type=\"checkbox\">\n	<ul>\n"
-    + ((stack1 = lookupProperty(helpers,"each").call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"global") : depth0)) != null ? lookupProperty(stack1,"mainmenu") : stack1)) != null ? lookupProperty(stack1,"items") : stack1),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":7,"column":2},"end":{"line":11,"column":11}}})) != null ? stack1 : "")
-    + "	</ul>\n</nav>";
+define(["handlebars"], function(Handlebars) { return Handlebars.template({"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "	<div class=\"container\">\n		<div class=\"d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm\">\n			<h5 class=\"my-0 mr-md-auto font-weight-normal\">LEO</h5>\n			<nav class=\"my-2 my-md-0 mr-md-3\">\n				<div class=\"btn-group dropdown\">\n					<a class=\"dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n						Why is Leo CDP?\n					</a>\n					<div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">\n						<a class=\"dropdown-item\" href=\"/features\">Features</a>\n						<a class=\"dropdown-item\" href=\"/integrations\">Integrations</a>\n						<a class=\"dropdown-item\" href=\"/customers\">Customers</a>\n						<a class=\"dropdown-item\" href=\"#\">Demo</a>\n						<a class=\"dropdown-item\" href=\"#\">FAQ</a>\n					</div>\n				</div>\n				<div class=\"btn-group dropdown\">\n					<a class=\"dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n						Learn\n					</a>\n					<div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">\n						<a class=\"dropdown-item\" href=\"/uspa-framework\">USPA framework</a>\n						<a class=\"dropdown-item\" href=\"/case-studies\">Case studies</a>\n						<a class=\"dropdown-item\" href=\"/docs\">Docs</a>\n						<a class=\"dropdown-item\" href=\"#\">Guides</a>\n						<a class=\"dropdown-item\" href=\"#\">Blogs</a>\n					</div>\n				</div>\n				<div class=\"btn-group\">\n					<a class=\"tn-group text-dark\" href=\"#\">Downloads</a>\n				</div>\n				<div class=\"btn-group\">\n					<a class=\"tn-group text-dark\" href=\"/pricing\">Pricing</a>\n				</div>\n\n			</nav>\n			<a class=\"my-2 my-md-0 mr-md-3\" href=\"#\">Contact</a>\n			<a class=\"my-2 my-md-0 mr-md-3\" href=\"#\">Sign up</a>\n			<form class=\"form-inline mt-2 mt-md-0\">\n				<input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"you@example.com\" aria-label=\"Search\">\n				<button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\">Contact us</button>\n			</form>\n		</div>\n	</div>\n";
 },"useData":true}); });

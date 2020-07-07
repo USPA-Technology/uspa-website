@@ -1,13 +1,44 @@
-<nav class="screen-menu">
-	<label for="endrjs_collapsed_menu" class="collapsed-menu">
-		<i class="fa fa-bars"></i>
-	</label>
-	<input id="endrjs_collapsed_menu" type="checkbox">
-	<ul>
-		{{#each global.mainmenu.items}}
-			<li>
-				<a {{{ternary new_window 'target="_blank"'}}} href="{{link}}">{{label}}</a>
-			</li>
-		{{/each}}
-	</ul>
-</nav>
+	<div class="container">
+		<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+			<h5 class="my-0 mr-md-auto font-weight-normal">LEO</h5>
+			<nav class="my-2 my-md-0 mr-md-3">
+				<div class="btn-group dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Why is Leo CDP?
+					</a>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a class="dropdown-item" href="/features">Features</a>
+						<a class="dropdown-item" href="/integrations">Integrations</a>
+						<a class="dropdown-item" href="/customers">Customers</a>
+						<a class="dropdown-item" href="#">Demo</a>
+						<a class="dropdown-item" href="#">FAQ</a>
+					</div>
+				</div>
+				<div class="btn-group dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Learn
+					</a>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a class="dropdown-item" href="/uspa-framework">USPA framework</a>
+						<a class="dropdown-item" href="/case-studies">Case studies</a>
+						<a class="dropdown-item" href="/docs">Docs</a>
+						<a class="dropdown-item" href="#">Guides</a>
+						<a class="dropdown-item" href="#">Blogs</a>
+					</div>
+				</div>
+				<div class="btn-group">
+					<a class="tn-group text-dark" href="#">Downloads</a>
+				</div>
+				<div class="btn-group">
+					<a class="tn-group text-dark" href="/pricing">Pricing</a>
+				</div>
+
+			</nav>
+			<a class="my-2 my-md-0 mr-md-3" href="#">Contact</a>
+			<a class="my-2 my-md-0 mr-md-3" href="#">Sign up</a>
+			<form class="form-inline mt-2 mt-md-0">
+				<input class="form-control mr-sm-2" type="text" placeholder="you@example.com" aria-label="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Contact us</button>
+			</form>
+		</div>
+	</div>
