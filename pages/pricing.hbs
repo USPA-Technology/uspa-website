@@ -8,11 +8,12 @@
 	</div>
 </div>
 
+{{#with pricing_iteams}}
 <div class="container">
 	<div class="card-deck mb-3 text-center">
 		<div class="card mb-4 shadow-sm">
 			<div class="card-header">
-				<h4 class="my-0 font-weight-normal">Free</h4>
+				<h4 class="my-0 font-weight-normal">{{free.header}}</h4>
 			</div>
 			<div class="card-body">
 				<h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
@@ -27,7 +28,7 @@
 		</div>
 		<div class="card mb-4 shadow-sm">
 			<div class="card-header">
-				<h4 class="my-0 font-weight-normal">Pro</h4>
+				<h4 class="my-0 font-weight-normal">{{pro.header}}</h4>
 			</div>
 			<div class="card-body">
 				<h1 class="card-title pricing-card-title">$15 <small class="text-muted">/ mo</small></h1>
@@ -42,7 +43,7 @@
 		</div>
 		<div class="card mb-4 shadow-sm">
 			<div class="card-header">
-				<h4 class="my-0 font-weight-normal">Enterprise</h4>
+				<h4 class="my-0 font-weight-normal">{{enterprise.header}}</h4>
 			</div>
 			<div class="card-body">
 				<h1 class="card-title pricing-card-title">$29 <small class="text-muted">/ mo</small></h1>
@@ -57,5 +58,6 @@
 		</div>
 	</div>
 </div>
+{{/with}}
 
 {{/body}}
