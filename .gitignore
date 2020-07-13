@@ -103,5 +103,8 @@ dist
 # TernJS port file
 .tern-port
 
-
-_generated/
+/_generated
+/assets/vendor
+/node_modules
+/assets/css/sprites
+enduro_secret.json

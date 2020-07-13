@@ -1,4 +1,8 @@
 {
 	"project_name": "enduro_intro",
-	"project_slug": "ei"
+	"project_slug": "ei",
+	"cultures": [
+		"en",
+		"vn"
+	]
 }

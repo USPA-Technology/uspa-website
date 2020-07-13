@@ -1,7 +1,7 @@
 @import 'variables/*';
 
 body {
-	background-color: $black;
+	background-color: rgb(230, 107, 107);
 	color: $white;
 	font-family: 'Lato', sans-serif;
 	font-weight: 200;
@@ -9,12 +9,27 @@ body {
 	margin: 0;
 }
 
+// body {
+
+// }
+
+// .btn-group{
+// color: black !important
+// }
+
+// #btn-group {
+
+// }
 .center_block {
 	text-align: center;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+}
+
+ a.btn-group{
+	color: black !important;
 }
 
 .bottom_block {
