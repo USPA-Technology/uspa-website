@@ -104,7 +104,7 @@ dist
 .tern-port
 
 /_generated
-/assets/vendor
+/_assets
 /node_modules
 /assets/css/sprites
 enduro_secret.json

@@ -1,7 +1,7 @@
 ({
 	first_slide: {
 		header: 'Leo CDP',
-		tagline: 'Your first enduro.js project',
+		tagline: 'Leo Customer Data Platform',
 		call_to_action: 'Scroll down to see what\'s up'
 	},
 	instruction_points: [
