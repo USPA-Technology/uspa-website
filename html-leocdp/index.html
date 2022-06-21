@@ -497,6 +497,11 @@
 					}
 				});
 			});
+
+			$("a[href]").click(function(e){
+				var url = $(this).attr('href');
+				LeoObserver.recordEventClickDetails({"landingPage":url})
+			})
 		}
 
 	</script>
