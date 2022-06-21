@@ -42,6 +42,9 @@
   <link href="./resources/bootstrap.min.css" rel="stylesheet">
   <link href="./resources/style.css" rel="stylesheet">
 
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
 </head>
 
 <body data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-delay="0">
@@ -479,9 +482,27 @@
 		
 		// (3) LEO OBSERVER is ready
 		function leoObserverProxyReady(session) {
-			   // auto tracking when LEO CDP JS is ready
-			   LeoObserver.recordEventPageView(parseDataUTM())
+			// auto tracking when LEO CDP JS is ready
+			LeoObserver.recordEventPageView(parseDataUTM())
+
+			// add tracking for all a[href] nodes
+			LeoObserverProxy.synchLeoVisitorId(function(vid){
+				var aNodes = document.querySelectorAll('a');
+				[].forEach.call(aNodes, function(aNode) {
+					var hrefUrl = aNode.href;
+					if(hrefUrl) {
+						if(hrefUrl.indexOf('?') > 0){
+							hrefUrl += ("&leosyn=" + vid);
+						}
+						else {
+							hrefUrl += ("?leosyn=" + vid);
+						}
+						aNode.href = hrefUrl;
+					}
+				});
+			});
 		}
+
 	</script>
 </body>
 
