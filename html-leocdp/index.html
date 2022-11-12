@@ -479,6 +479,23 @@
 			LeoObserverProxy.recordConversionEvent("purchase", eventData , transactionId, shoppingCartItems, transactionValue, currencyCode);
 		
 		}
+
+		// Google Analytics 4: load JavaScript Code and synch LEO Visitor ID
+		(function() { 	
+			var src = 'https://www.googletagmanager.com/gtag/js?id=G-YM4SP4CCG6';
+			var jsNode = document.createElement('script');
+			jsNode.async=true; jsNode.src = src;
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(jsNode, s);
+		})();
+		LeoObserverProxy.synchLeoVisitorId(function(vid){
+			window.dataLayer = window.dataLayer || []; 
+			dataLayer.push({ 'user_id': vid });
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('set', 'user_id', vid);
+			gtag('config', 'G-YM4SP4CCG6');
+		});
 		
 		// (3) LEO OBSERVER is ready
 		function leoObserverProxyReady(session) {
