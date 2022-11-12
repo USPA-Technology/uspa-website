@@ -279,10 +279,31 @@
 	<div class="mobile-nav-overly"></div>
 
 	<script>
-		// (1) LEO OBSERVER: load JavaScript code for [LEO CDP]
+
+		// Google Analytics 4: load JavaScript Code and synch LEO Visitor ID
+		(function () {
+			var src = 'https://www.googletagmanager.com/gtag/js?id=G-YM4SP4CCG6';
+			var jsNode = document.createElement('script');
+			jsNode.async = true; jsNode.src = src;
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(jsNode, s);
+		})();
+
+		window.synchLeoCdpToGA4 = window.synchLeoCdpToGA4 || function (vid) {
+			window.dataLayer = window.dataLayer || [];
+			dataLayer.push({ 'user_id': vid });
+			function gtag() { dataLayer.push(arguments); }
+			gtag('js', new Date());
+			gtag('set', 'user_id', vid);
+			gtag('config', 'G-YM4SP4CCG6');
+		};
+
+	</script>
+	<script>
+		// (1) LEO OBSERVER: load JavaScript code for [USPA Tech]
 		(function () {
 			// Observer ID
-			window.leoObserverId = "42VzKtDjcszjFxxFDZULZQ";
+			window.leoObserverId = "25FVTCAOBqZrmlpwr9tUgU";
 
 			// CDN of JS
 			window.leoObserverLogDomain = "datahub4uspa.leocdp.net";
@@ -416,30 +437,8 @@
 			transactionId = typeof transactionId === "string" ? transactionId : "";
 			transactionValue = typeof transactionValue === "number" ? transactionValue : 0;
 			currencyCode = typeof currencyCode === "string" ? currencyCode : "USD";
-			// submit data
 			LeoObserverProxy.recordConversionEvent("purchase", eventData, transactionId, shoppingCartItems, transactionValue, currencyCode);
-
 		}
-
-
-			// Google Analytics 4: load JavaScript Code and synch LEO Visitor ID
-			(function () {
-				var src = 'https://www.googletagmanager.com/gtag/js?id=G-YM4SP4CCG6';
-				var jsNode = document.createElement('script');
-				jsNode.async = true; jsNode.src = src;
-				var s = document.getElementsByTagName('script')[0];
-				s.parentNode.insertBefore(jsNode, s);
-			})();
-
-		window.synchLeoCdpToGA4 = window.synchLeoCdpToGA4 || function (vid) {
-			window.dataLayer = window.dataLayer || [];
-			dataLayer.push({ 'user_id': vid });
-			function gtag() { dataLayer.push(arguments); }
-			gtag('js', new Date());
-			gtag('set', 'user_id', vid);
-			gtag('config', 'G-YM4SP4CCG6');
-		};
-
 
 		// (3) LEO OBSERVER is ready
 		function leoObserverProxyReady(session) {
