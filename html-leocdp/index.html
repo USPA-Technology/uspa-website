@@ -360,6 +360,25 @@
 	<div class="mobile-nav-overly"></div>
 
 	<script>
+		// Google Analytics 4: load JavaScript Code and synch LEO Visitor ID
+		(function () {
+			var src = 'https://www.googletagmanager.com/gtag/js?id=G-YM4SP4CCG6';
+			var jsNode = document.createElement('script');
+			jsNode.async = true; jsNode.src = src;
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(jsNode, s);
+		})();
+
+		window.synchLeoCdpToGA4 = window.synchLeoCdpToGA4 || function (vid) {
+			window.dataLayer = window.dataLayer || [];
+			dataLayer.push({ 'user_id': vid });
+			function gtag() { dataLayer.push(arguments); }
+			gtag('js', new Date());
+			gtag('set', 'user_id', vid);
+			gtag('config', 'G-YM4SP4CCG6');
+		};
+	</script>
+	<script>
 		// (1) LEO OBSERVER: load JavaScript code for [LEO CDP]
 		(function () {
 			// Observer ID
@@ -377,7 +396,7 @@
 			var leoproxyJsPath = '/js/leo-observer/leo.proxy.min.js';
 			var src = location.protocol + '//' + window.leoObserverCdnDomain + leoproxyJsPath;
 			var jsNode = document.createElement('script');
-			jsNode.async = true; jsNode.defer = true; jsNode.src = src;
+			jsNode.async = true; jsNode.src = src;
 			var s = document.getElementsByTagName('script')[0];
 			s.parentNode.insertBefore(jsNode, s);
 		})();
@@ -489,26 +508,16 @@
 			LeoObserverProxy.recordActionEvent("product-trial", eventData);
 		}
 
-
-
-		// Google Analytics 4: load JavaScript Code and synch LEO Visitor ID
-		(function () {
-			var src = 'https://www.googletagmanager.com/gtag/js?id=G-YM4SP4CCG6';
-			var jsNode = document.createElement('script');
-			jsNode.async = true; jsNode.src = src;
-			var s = document.getElementsByTagName('script')[0];
-			s.parentNode.insertBefore(jsNode, s);
-		})();
-
-		window.synchLeoCdpToGA4 = window.synchLeoCdpToGA4 || function (vid) {
-			window.dataLayer = window.dataLayer || [];
-			dataLayer.push({ 'user_id': vid });
-			function gtag() { dataLayer.push(arguments); }
-			gtag('js', new Date());
-			gtag('set', 'user_id', vid);
-			gtag('config', 'G-YM4SP4CCG6');
-		};
-
+		// (2.17) function to track Conversion Event "Purchase"
+		LeoObserver.recordEventPurchase = function (eventData, shoppingCartItems, transactionId, transactionValue, currencyCode) {
+			// need 5 params
+			eventData = typeof eventData === "object" ? eventData : {};
+			shoppingCartItems = typeof shoppingCartItems === "object" ? shoppingCartItems : [];
+			transactionId = typeof transactionId === "string" ? transactionId : "";
+			transactionValue = typeof transactionValue === "number" ? transactionValue : 0;
+			currencyCode = typeof currencyCode === "string" ? currencyCode : "USD";
+			LeoObserverProxy.recordConversionEvent("purchase", eventData, transactionId, shoppingCartItems, transactionValue, currencyCode);
+		}
 
 		// (3) LEO OBSERVER is ready
 		function leoObserverProxyReady(session) {
