@@ -1,0 +1,121 @@
+<html>
+
+<head>
+    <title>Test GA 4</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YM4SP4CCG6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-YM4SP4CCG6');
+    </script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        canvas {
+            border: 1px solid red;
+        }
+
+        h1 {
+            color: blue;
+            font-size: 72px;
+            ;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" />
+
+    <h1>Game</h1>
+    <h2>Content</h2>
+    <button onclick="button1Click()">HTML button</button> <br><br>
+
+    <script>
+        function button1Click() {
+            gtag('event', 'submit-avatar', {
+                'app_name': 'Tiger',
+                'screen_name': 'Login'
+            });
+            console.log("button1Click")
+        }
+        function button2Click() {
+            gtag('event', 'button2-click', {
+                'app_name': 'Tiger',
+                'screen_name': 'Play'
+            });
+            console.log("button2Click")
+        }
+    </script>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // create circles to draw
+        const buttons = [
+            {
+                x: 40,
+                y: 40,
+                width: 150,
+                height: 40,
+                color: 'rgb(255,0,0)',
+                text: 'Button GL 1'
+            },
+            {
+                x: 40,
+                y: 100,
+                width: 150,
+                height: 40,
+                color: 'rgb(255,0,255)',
+                text: 'Button GL 2'
+            }
+        ];
+
+        buttons.forEach(b => {
+            ctx.beginPath();
+            ctx.rect(b.x, b.y, b.width, b.height);
+            ctx.fillStyle = b.color;
+            ctx.fill();
+            ctx.fillStyle = 'white';
+            ctx.font = "14px Arial";
+            ctx.fillText(b.text, b.x + b.width / 4, b.y + b.height / 1.6);
+        });
+
+        function isIntersect(pos, btn) {
+           
+            if ( (pos.x >= btn.x && pos.x < btn.x + btn.width) && (pos.y >= btn.y && pos.y < btn.y + btn.height)) {
+                return true;
+            }
+            return false;
+        }
+
+        canvas.addEventListener('click', (e) => {
+            const pos = {
+                x: e.clientX,
+                y: e.clientY
+            };
+            buttons.forEach((b, i) => {
+                if (isIntersect(pos, b)) {
+                    if(b.text === "Button GL 1") {
+                        button1Click()
+                    }
+                    else if(b.text === "Button GL 2") {
+                        button2Click()
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

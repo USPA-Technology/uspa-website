@@ -375,7 +375,7 @@
 		}
 			
 		// (2) LEO OBSERVER: set-up all event tracking functions
-		var LeoObserver = {};
+		var LeoObserver = {}, LeoObserverProxy = {};
 		
 		// (2.1) function to track View Event "AdImpression"
 		LeoObserver.recordEventAdImpression = function(eventData) {
