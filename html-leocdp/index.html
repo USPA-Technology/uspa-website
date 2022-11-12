@@ -489,16 +489,7 @@
 			LeoObserverProxy.recordActionEvent("product-trial", eventData);
 		}
 
-		// (2.17) function to track Conversion Event "Purchase"
-		LeoObserver.recordEventPurchase = function (eventData, shoppingCartItems, transactionId, transactionValue, currencyCode) {
-			// need 5 params
-			eventData = typeof eventData === "object" ? eventData : {};
-			shoppingCartItems = typeof shoppingCartItems === "object" ? shoppingCartItems : [];
-			transactionId = typeof transactionId === "string" ? transactionId : "";
-			transactionValue = typeof transactionValue === "number" ? transactionValue : 0;
-			currencyCode = typeof currencyCode === "string" ? currencyCode : "USD";
-			LeoObserverProxy.recordConversionEvent("purchase", eventData, transactionId, shoppingCartItems, transactionValue, currencyCode);
-		}
+
 
 		// Google Analytics 4: load JavaScript Code and synch LEO Visitor ID
 		(function () {
