@@ -561,7 +561,7 @@
 	function leoObserverProxyReady(session) {
 		// auto tracking when LEO CDP JS is ready
 		LeoObserver.recordEventPageView(parseDataUTM()) ;
-		   
+		
 		// set tracking LEO visitor ID into all a[href] nodes
 		LeoObserverProxy.synchLeoVisitorId(function(vid){
 			var aNodes = document.querySelectorAll('a');
@@ -572,12 +572,14 @@
 					if(hrefUrl.indexOf('?') > 0) hrefUrl += ("&leosyn=" + vid);
 					else hrefUrl += ("?leosyn=" + vid);
 					aNode.href = hrefUrl;
+					console.log(hrefUrl)
 				}
 			});
 			if(typeof window.synchLeoCdpToGA4 === "function") {
 				window.synchLeoCdpToGA4(vid)
 			}
-		});
+		});	   
+	}
 	</script>
 </body>
 
