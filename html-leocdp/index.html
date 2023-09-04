@@ -43,16 +43,18 @@
 	<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
 	<!-- Template Main CSS File -->
-	<link href="./resources/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 	<link href="./resources/style.css" rel="stylesheet">
 
 	<!-- jquery -->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
 		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 </head>
 
-<body data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-delay="0">
+<body data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-delay="0" data-spy="scroll" data-target="#navbar">
 
 	<button type="button" class="mobile-nav-toggle d-lg-none">
 		<ion-icon name="menu-outline"></ion-icon>
@@ -67,11 +69,10 @@
 						src="https://cdn.jsdelivr.net/gh/USPA-Technology/leo-cdp-static-files@latest/images/leo-cdp-logo.png"
 						alt="LEO CDP" class="img-fluid"></a>
 			</div>
-			<nav class="nav-menu d-none d-lg-block">
-				<ul>
-					<li class=""><a href="https://knowledge.leocdp.net/p/introduction-to-leo-cdp-101.html"
-							target="_blank">Introduction to LEO CDP</a></li>
-					<li class=""><a href="https://knowledge.leocdp.net" target="_blank">Learn</a></li>
+			<nav id="navbar" class="nav-menu d-none d-lg-block">
+				<ul class="font-weight-bold">
+					<li class=""><a href="#leocdp_philosophy" >The philosophy of LEO CDP</a></li>
+					<li class=""><a href="https://knowledge.leocdp.net" target="_blank">Knowledge Blog</a></li>
 					<li class="get-started"><a href="https://github.com/trieu/leo-cdp-free-edition"
 							target="_blank">Download</a></li>
 				</ul>
@@ -88,11 +89,10 @@
 			<div class="row">
 				<div class="col-lg-5 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
 					<h1 data-aos="fade-up" class="aos-init aos-animate">Transform Your Business with LEO CDP</h1>
-					<h3 data-aos="fade-up" data-aos-delay="400" class="aos-init aos-animate">Customer Data platform for
-						omnichannel personalization, is developed by USPA Technology Company</h3>
+					<h4 data-aos="fade-up" data-aos-delay="400" class="aos-init aos-animate">Customer Data platform for
+						omnichannel personalization, is developed by USPA Technology Company</h4>
 					<div data-aos="fade-up" data-aos-delay="800" class="aos-init aos-animate">
-						<a href="https://knowledge.leocdp.net" target="_blank" class="btn-get-started scrollto">Get
-							Started</a>
+						<a href="#ebook_cdp"  class="btn-get-started scrollto">Get Started</a>
 					</div>
 				</div>
 				<div class="col-lg-7 order-1 order-lg-2 hero-img aos-init aos-animate" data-aos="fade-left"
@@ -110,7 +110,7 @@
 	<main id="main">
 
 		<!-- ======= Services Section ======= -->
-		<section id="services" class="services">
+		<section id="leocdp_philosophy" class="services">
 			<div class="container">
 
 				<div class="section-title aos-init aos-animate" data-aos="fade-up">
@@ -153,7 +153,7 @@
 
 
 		<!-- ======= Features Section ======= -->
-		<section id="features" class="features">
+		<section id="leocdp_features" class="features">
 			<div class="container">
 
 				<div class="section-title aos-init aos-animate" data-aos="fade-up">
@@ -214,6 +214,22 @@
 
 				</div>
 		</section><!-- End Features Section -->
+
+		<!-- ======= About Us Section ======= -->
+		<section id="ebook_cdp" class="about">
+			<div class="container">
+
+				<div class="section-title aos-init aos-animate" data-aos="fade-up">
+					<h2>Customer Data Platform - The Ultimate Handbook</h2>
+				</div>
+
+				
+				<div class="row content">
+					<div id="cdp_ebook_viewer" style="margin: auto; width: 94%;height: 720px;"></div>
+				</div>
+
+			</div>
+		</section><!-- End About Us Section -->
 
 		<!-- ======= About Us Section ======= -->
 		<section id="about" class="about">
@@ -362,8 +378,30 @@
 	</nav>
 	<div class="mobile-nav-overly"></div>
 
+	<script src="https://unpkg.com/pdfobject@2.2.12/pdfobject.min.js"></script>
 	<script>
+		function loadEbookViewer(){
+			var options = {
+				pdfOpenParams: {
+					pagemode: "thumbs",
+					navpanes: 0,
+					toolbar: 1,
+					statusbar: 1,
+					view: "FitH"
+				}
+			};
 
+			var ebookUrl = 'https://cdn.jsdelivr.net/gh/trieu/leo-cdp-free-edition@latest/ebooks/customer-data-platforms-the-ultimate-handbook.pdf';
+			var myPDF = PDFObject.embed(ebookUrl, "#cdp_ebook_viewer", options);
+
+			var el = document.querySelector("#results");
+			el.setAttribute("class", (myPDF) ? "success" : "fail");
+			el.innerHTML = (myPDF) ? "PDFObject successfully added an &lt;embed> element to the page!" : "Uh-oh, the embed didn't work.";
+		}
+		loadEbookViewer();
+	</script>
+
+	<script>
 		// Google Analytics 4: load JavaScript Code and synch LEO Visitor ID
 		(function() { 	
 			var src = 'https://www.googletagmanager.com/gtag/js?id=G-YM4SP4CCG6';
@@ -381,7 +419,6 @@
 			gtag('set', 'user_id', vid);
 			gtag('config', 'G-YM4SP4CCG6');
 		};
-	
 	</script>
 	<script>
 	// (1) LEO OBSERVER: load JavaScript code for [LEO CDP]
