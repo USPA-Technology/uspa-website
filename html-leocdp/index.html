@@ -14,8 +14,6 @@
 	<link rel="apple-touch-icon" sizes="180x180" href="//admin.leocdp.com/public/images/leocdp-icon/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="//admin.leocdp.com/public/images/leocdp-icon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="//admin.leocdp.com/public/images/leocdp-icon/favicon-16x16.png">
-	<link rel="manifest" href="//admin.leocdp.com/public/images/leocdp-icon/site.webmanifest">
-	<link rel="mask-icon" href="//admin.leocdp.com/public/images/leocdp-icon/safari-pinned-tab.svg" color="#5bbad5">
 	
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="theme-color" content="#ffffff">
@@ -356,11 +354,11 @@
 				</div>
 				<div class="col-lg-6">
 					<nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
-						<a href="/#intro" class="scrollto">Home</a>
-						<a href="/#about" class="scrollto">About</a>
-						<a href="/#contact">Contact Us</a>
-						<a href="/#">Privacy Policy</a>
-						<a href="/#">Terms of Use</a>
+						<a href="#hero" class="scrollto">Home</a>
+						<a href="#about" class="scrollto">About</a>
+						<a href="#contact">Contact Us</a>
+						<a href="#">Privacy Policy</a>
+						<a href="#">Terms of Use</a>
 					</nav>
 				</div>
 			</div>
@@ -393,13 +391,8 @@
 					view: "FitH"
 				}
 			};
-
 			var ebookUrl = 'https://cdn.jsdelivr.net/gh/trieu/leo-cdp-free-edition@latest/ebooks/customer-data-platforms-the-ultimate-handbook.pdf';
-			var myPDF = PDFObject.embed(ebookUrl, "#cdp_ebook_viewer", options);
-
-			var el = document.querySelector("#results");
-			el.setAttribute("class", (myPDF) ? "success" : "fail");
-			el.innerHTML = (myPDF) ? "PDFObject successfully added an &lt;embed> element to the page!" : "Uh-oh, the embed didn't work.";
+			PDFObject.embed(ebookUrl, "#cdp_ebook_viewer", options);
 		}
 		loadEbookViewer();
 	</script>
@@ -574,10 +567,11 @@
 			var aNodes = document.querySelectorAll('a');
 			[].forEach.call(aNodes, function(aNode) {
 				var hrefUrl = aNode.href;
-				if(hrefUrl) {
+				if(hrefUrl && hrefUrl.indexOf('http') > 0 && hrefUrl.indexOf(location.host) < 0 ) {
 					if(hrefUrl.indexOf('?') > 0) {hrefUrl += ("&leosyn=" + vid);}
 					else {hrefUrl += ("?leosyn=" + vid);}
 					aNode.href = hrefUrl;
+					console.log("synchLeoVisitorId URL: "+hrefUrl);
 				}
 			});
 			
