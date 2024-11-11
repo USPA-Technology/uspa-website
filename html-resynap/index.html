@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReSynap - Free AI Mind Map Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        .hero {
+            background-color: #f8f9fa;
+        }
+
+        .feature-icon {
+            font-size: 4rem;
+            color: #0d6efd;
+        }
+
+        .navbar-nav .nav-link.active {
+            /* Style for active nav link */
+            font-weight: bold;
+            color: #0d6efd !important;
+            /* Override default link color if needed */
+        }
+
+        .info-panel {
+            background-color: #e9ecef;
+            /* Light gray background for the panel */
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            /* Adjust margin as needed */
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="resources/resynap-logo.png" alt="ReSynap Logo" width="64"> ReSynap </a> <button
+                class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span
+                    class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#resynap_features">Features</a>
+                    </li>
+                    <li class="nav-item" style="display: none;">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item" style="display: none;">
+                        <a class="nav-link" href="#">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- New info panel section -->
+    <section class="info-panel">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center"> <!-- Center the text -->
+                    <p class="lead">
+                        <i class="bi bi-calendar-event"></i> <!-- Calendar icon (optional) -->
+                        ReSynap is scheduled to be released on <strong>December 2nd, 2024</strong>. Stay tuned for
+                        updates!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="hero py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1>ReSynap: Unleash Your Knowledge with AI Mind Maps</h1>
+                    <p class="lead">Generate dynamic mind maps from text, navigate them seamlessly with content and
+                        video,
+                        and even convert your text chats into visual knowledge graphs. All for free!</p>
+                    <a href="#" class="btn btn-primary btn-lg" style="display: none;">Get Started</a>
+                    <h5></h5>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://i0.wp.com/content.mermaidchart.com/wp-content/uploads/2024/10/mindmap-6.webp?w=1116&ssl=1"
+                        alt="Mind Map Example" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Features Section -->
+    <section class="py-5" id="resynap_features">
+        <div class="container">
+            <h2 class="text-center mb-5">Core Features</h2>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="text-center"> <i class="bi bi-pencil-square feature-icon"></i>
+                        <h3>Text Editor Mind Mapping</h3>
+                        <p>Create and customize your mind maps effortlessly using our intuitive text editor. Simply type
+                            your
+                            ideas, and ReSynap will transform them into a visual representation of your knowledge.</p>
+                    </div>
+
+                </div>
+                <div class="col-lg-4">
+                    <div class="text-center">
+                        <i class="bi bi-diagram-3 feature-icon"></i>
+                        <h3>Content & Video Navigation</h3>
+                        <p>Enrich your mind maps with multimedia content. Embed videos, links, and other resources
+                            directly
+                            into your nodes to create a dynamic and interactive learning experience.</p>
+                    </div>
+
+                </div>
+                <div class="col-lg-4">
+                    <div class="text-center">
+                        <i class="bi bi-chat-left-dots feature-icon"></i>
+                        <h3>Text Chat to Mind Map</h3>
+                        <p>Transform your text conversations into insightful mind maps. ReSynap can analyze your chat
+                            logs and
+                            automatically generate a visual representation of the key ideas and relationships.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-light py-3">
+        <div class="container text-center">
+            <p>© 2025 ReSynap. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script> $(document).ready(function () {
+            $('.navbar-nav .nav-link').click(function () {
+                $('.navbar-nav .nav-link').removeClass('active');
+                $(this).addClass('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
