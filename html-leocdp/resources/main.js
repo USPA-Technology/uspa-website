@@ -142,10 +142,17 @@ function tryDemoLeoCDP() {
   });
 }
 
-function downloadLeoCDP() {
+function downloadSourceCode() {
+  LeoObserver.recordClickToDownload({
+    trial_source: "leocdp_website_source_button",
+    trial_product: "leocdp_framework",
+  });
+}
+
+function downloadDeployment() {
   LeoObserver.recordClickToDownload({
     trial_source: "leocdp_website_download_button",
-    trial_product: "leocdp_framework",
+    trial_product: "leocdp_deployment",
   });
 }
 
