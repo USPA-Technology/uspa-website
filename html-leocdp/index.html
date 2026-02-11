@@ -48,7 +48,8 @@
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav ms-auto align-items-center">
 						<li class="nav-item">
-							<a class="nav-link" href="https://leocdp.com/docs/index.html" target="_blank">Documentation</a>
+							<a class="nav-link" href="https://leocdp.com/docs/index.html"
+								target="_blank">Documentation</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#leocdp_philosophy">Philosophy</a>
@@ -60,7 +61,7 @@
 							<a class="nav-link" href="#demo">Demo</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#" onclick="openNewsletterModal('top_nav')">Subscribe</a>
+							<a class="nav-link" href="#" data-leo-newsletter="top_nav">Subscribe</a>
 						</li>
 						<li class="nav-item ms-lg-3">
 							<a class="btn btn-primary px-4 rounded-pill"
@@ -96,7 +97,8 @@
 						Unify data, automate journeys, and deploy white-label solutions with our open-source framework.
 					</p>
 					<div class="d-flex gap-3 justify-content-lg-start justify-content-center">
-						<a href="https://github.com/trieu/leo-cdp-framework" target="_blank" class="btn btn-primary btn-lg rounded-pill">
+						<a href="https://github.com/trieu/leo-cdp-framework" target="_blank"
+							class="btn btn-primary btn-lg rounded-pill">
 							<i class="ri-robot-line me-2"></i>Source Code
 						</a>
 						<a href="https://leocdp.com/docs/index.html" target="_blank"
@@ -106,10 +108,10 @@
 					</div>
 				</div>
 				<div class="col-lg-6 order-1 order-lg-2 text-center hero-img" data-aos="fade-left">
-					
+
 					<img src="https://gcore.jsdelivr.net/gh/trieu/leo-cdp-framework@latest/core-leo-cdp/leo-cdp-version-2.0.png"
 						class="img-fluid" alt="AI-First CDP Architecture with Agentic AI">
-					
+
 				</div>
 			</div>
 		</div>
@@ -226,7 +228,7 @@
 			</div>
 		</section>
 
-		<section id="ebook_cdp" class="bg-light">
+		<section id="ebook_cdp" class="bg-light" style="display: none;">
 			<div class="container">
 				<div class="section-title" data-aos="fade-up">
 					<span class="section-subtitle">Handbook</span>
@@ -302,7 +304,7 @@
 					<h5 class="fw-bold mb-3">Stay Updated</h5>
 					<p class="text-muted small">Subscribe to our newsletter for the latest updates.</p>
 					<button class="btn btn-outline-primary btn-sm rounded-pill px-4"
-						onclick="openNewsletterModal('footer')">Subscribe</button>
+						data-leo-newsletter="footer">Subscribe</button>
 				</div>
 			</div>
 		</div>
@@ -319,31 +321,6 @@
 		<i class="ri-arrow-up-line"></i>
 	</a>
 
-	<div class="modal fade" id="newsletterModal" tabindex="-1" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content rounded-4 border-0 shadow-lg">
-				<div class="modal-header border-bottom-0">
-					<h5 class="modal-title fw-bold">LEO CDP Updates</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body p-4">
-					<p class="text-muted mb-4">Get product updates and technical releases directly to your inbox.</p>
-					<form id="newsletterForm">
-						<div class="mb-3">
-							<input type="email" class="form-control rounded-3" id="newsletterEmail"
-								placeholder="Your work email" required>
-						</div>
-						<button type="submit" class="btn btn-primary w-100 rounded-3">Subscribe</button>
-						<small class="text-muted d-block mt-3 text-center">No spam. Unsubscribe anytime.</small>
-					</form>
-					<div id="newsletterSuccessMessage" class="alert alert-success mt-3 rounded-3" style="display: none;"
-						role="alert">
-						<strong>Thank you!</strong> You have successfully subscribed.
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
@@ -356,11 +333,12 @@
 			AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
 		});
 
-		// Modal Helper
-		function openNewsletterModal() {
-			var myModal = new bootstrap.Modal(document.getElementById('newsletterModal'));
-			myModal.show();
+		function isDesktopDevice() {
+			const hasFinePointer = window.matchMedia("(pointer: fine)").matches;
+			const minWidth = window.innerWidth >= 1024;
+			return hasFinePointer && minWidth;
 		}
+
 
 		// Ebook Viewer
 		function loadEbookViewer() {
@@ -370,9 +348,14 @@
 			var ebookUrl = 'https://cdn.jsdelivr.net/gh/USPA-Technology/uspa-website@latest/ebooks/leocdp-ebook.pdf';
 			PDFObject.embed(ebookUrl, "#cdp_ebook_viewer", options);
 		}
-		loadEbookViewer();
-	</script>
 
+		if(isDesktopDevice()){
+			$('#ebook_cdp').show()
+			loadEbookViewer();
+		}
+		
+
+	</script>
 
 
 	<script>
@@ -418,6 +401,46 @@
 	</script>
 
 	<script src="./resources/main.js?_t=16h-2026-01-23"></script>
+
+
+	<!-- leo-newsletter-modal -->
+	<script src="./resources/leo-newsletter-modal.js"></script>
+	<link href="./resources/leo-newsletter-modal.css" rel="stylesheet">
+	<script>
+		const newsletter = new LeoNewsletterModal({
+			locale: 'en',
+			i18n: {
+				en: {
+					title: 'LEO CDP Updates',
+					description: 'Get product updates and technical releases directly to your inbox.',
+					placeholderName: 'Your name',
+					placeholderEmail: 'Your work email',
+					button: 'Subscribe',
+					footer: 'No spam. Unsubscribe anytime.',
+					success: 'Thank you! You have successfully subscribed.'
+				},
+				vi: {
+					title: 'Cập nhật LEO CDP',
+					description: 'Nhận thông tin sản phẩm và bản phát hành kỹ thuật qua email.',
+					placeholderName: 'Tên bạn',
+					placeholderEmail: 'Email công việc của bạn',
+					button: 'Đăng ký',
+					footer: 'Không spam. Hủy đăng ký bất kỳ lúc nào.',
+					success: 'Cảm ơn bạn đã đăng ký!'
+				}
+			}
+		});
+		document.addEventListener('leo.newsletter.success', function (e) {
+			console.log('Subscribed:', e.detail.name, e.detail.email);
+			if (window.LeoObserver && typeof LeoObserver.recordEventSubmitContact === "function") {
+				LeoObserver.recordEventSubmitContact({
+					source: "newsletter_modal",
+					email: e.detail.email,
+					name: e.detail.name
+				});
+			}
+		});
+	</script>
 
 </body>
 
