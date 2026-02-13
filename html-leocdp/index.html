@@ -349,11 +349,11 @@
 			PDFObject.embed(ebookUrl, "#cdp_ebook_viewer", options);
 		}
 
-		if(isDesktopDevice()){
+		if (isDesktopDevice()) {
 			$('#ebook_cdp').show()
 			loadEbookViewer();
 		}
-		
+
 
 	</script>
 
@@ -402,45 +402,58 @@
 
 	<script src="./resources/main.js?_t=16h-2026-01-23"></script>
 
-
-	<!-- leo-newsletter-modal -->
-	<script src="./resources/leo-newsletter-modal.js"></script>
+	<!-- Leo Newsletter Modal -->
 	<link href="./resources/leo-newsletter-modal.css" rel="stylesheet">
+	<script src="./resources/leo-newsletter-modal.js"></script>
+
 	<script>
-		const newsletter = new LeoNewsletterModal({
-			locale: 'en',
-			i18n: {
-				en: {
-					title: 'LEO CDP Updates',
-					description: 'Get product updates and technical releases directly to your inbox.',
-					placeholderName: 'Your name',
-					placeholderEmail: 'Your work email',
-					button: 'Subscribe',
-					footer: 'No spam. Unsubscribe anytime.',
-					success: 'Thank you! You have successfully subscribed.'
-				},
-				vi: {
-					title: 'Cập nhật LEO CDP',
-					description: 'Nhận thông tin sản phẩm và bản phát hành kỹ thuật qua email.',
-					placeholderName: 'Tên bạn',
-					placeholderEmail: 'Email công việc của bạn',
-					button: 'Đăng ký',
-					footer: 'Không spam. Hủy đăng ký bất kỳ lúc nào.',
-					success: 'Cảm ơn bạn đã đăng ký!'
+		document.addEventListener("DOMContentLoaded", function () {
+			// Init with Phone Option Enabled
+			const newsletter = new LeoNewsletterModal({
+				locale: 'en',
+				collectPhone: true, 
+				i18n: {
+					en: {
+						title: 'Stay Connected',
+						placeholderName: 'Your Name',
+						placeholderEmail: 'Your Email',
+						placeholderPhone: 'Your Mobile Number', 
+						button: 'Subscribe Now'
+					},
+					vi: {
+						title: 'Giữ liên lạc',
+						placeholderName: 'Tên của bạn',
+						placeholderEmail: 'Email của bạn',
+						placeholderPhone: 'Số điện thoại',
+						button: 'Đăng ký'
+					}
 				}
-			}
-		});
-		document.addEventListener('leo.newsletter.success', function (e) {
-			console.log('Subscribed:', e.detail.name, e.detail.email);
-			if (window.LeoObserver && typeof LeoObserver.recordEventSubmitContact === "function") {
-				LeoObserver.recordEventSubmitContact({
-					source: "newsletter_modal",
-					email: e.detail.email,
-					name: e.detail.name
-				});
-			}
+			});
+
+			// Handle Success Event
+			document.addEventListener('leo.newsletter.success', function (e) {
+				console.log('Subscribed Data:', e.detail);
+				// Output: { name: "...", email: "...", phone: "..." }
+
+				// Integration with LEO CDP
+				if (window.LeoObserver && typeof LeoObserver.recordEventSubmitContact === "function") {
+					const contactData = {
+						source: "newsletter_modal",
+						email: e.detail.email,
+						name: e.detail.name
+					};
+
+					// Only add phone if it exists
+					if (e.detail.phone) {
+						contactData.phone = e.detail.phone;
+					}
+
+					LeoObserver.recordEventSubmitContact(contactData);
+				}
+			});
 		});
 	</script>
+
 
 </body>
 
