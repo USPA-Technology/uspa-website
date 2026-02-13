@@ -403,56 +403,42 @@
 	<script src="./resources/main.js?_t=16h-2026-01-23"></script>
 
 	<!-- Leo Newsletter Modal -->
-	<link href="./resources/leo-newsletter-modal.css" rel="stylesheet">
 	<script src="./resources/leo-newsletter-modal.js"></script>
 
 	<script>
-		document.addEventListener("DOMContentLoaded", function () {
-			// Init with Phone Option Enabled
-			const newsletter = new LeoNewsletterModal({
-				locale: 'en',
-				collectPhone: true, 
-				i18n: {
-					en: {
-						title: 'Stay Connected',
-						placeholderName: 'Your Name',
-						placeholderEmail: 'Your Email',
-						placeholderPhone: 'Your Mobile Number', 
-						button: 'Subscribe Now'
-					},
-					vi: {
-						title: 'Giữ liên lạc',
-						placeholderName: 'Tên của bạn',
-						placeholderEmail: 'Email của bạn',
-						placeholderPhone: 'Số điện thoại',
-						button: 'Đăng ký'
-					}
+		const newsletter = new LeoNewsletterModal({
+			locale: 'en',
+			collectPhone: true,   // Enables phone input and validation
+			theme: 'auto',        // Options: 'light', 'dark', 'auto'
+			i18n: {
+				en: {
+					title: 'Join the Community',
+					description: 'Weekly tech news, no spam.',
+					placeholderName: 'Full Name',
+					placeholderEmail: 'Work Email',
+					placeholderPhone: 'Mobile (Optional)',
+					button: 'Sign Me Up'
 				}
-			});
+			}
+		});
 
-			// Handle Success Event
-			document.addEventListener('leo.newsletter.success', function (e) {
-				console.log('Subscribed Data:', e.detail);
-				// Output: { name: "...", email: "...", phone: "..." }
+		// Listen for Success
+		document.addEventListener('leo.newsletter.success', function (e) {
+			// e.detail contains { name, email, phone }
+			console.log("Captured:", e.detail);
 
-				// Integration with LEO CDP
-				if (window.LeoObserver && typeof LeoObserver.recordEventSubmitContact === "function") {
-					const contactData = {
-						source: "newsletter_modal",
-						email: e.detail.email,
-						name: e.detail.name
-					};
-
-					// Only add phone if it exists
-					if (e.detail.phone) {
-						contactData.phone = e.detail.phone;
-					}
-
-					LeoObserver.recordEventSubmitContact(contactData);
-				}
-			});
+			if (window.LeoObserver) {
+				LeoObserver.recordEventSubmitContact({
+					source: "newsletter_modal",
+					name: e.detail.name,
+					email: e.detail.email,
+					phone: e.detail.phone // Safe to pass even if empty
+				});
+			}
 		});
 	</script>
+
+
 
 
 </body>
