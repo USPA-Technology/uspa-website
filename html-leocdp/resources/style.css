@@ -124,6 +124,163 @@ section {
     font-size: 28px;
 }
 
+/* --- Experience-to-Action Steps --- */
+#features {
+    display: grid;
+    gap: 12px;
+}
+
+.feature-head,
+.feature-step {
+    grid-template-columns: minmax(180px, 0.8fr) minmax(250px, 1.2fr) minmax(260px, 1fr);
+    gap: 28px;
+}
+
+.feature-head {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 0 24px 4px;
+    text-transform: uppercase;
+}
+
+.feature-step {
+    align-items: center;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    display: grid;
+    padding: 22px 24px;
+}
+
+.feature-concept {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+}
+
+.step-number {
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.feature-concept i {
+    color: var(--primary-color);
+    font-size: 1.35rem;
+}
+
+.feature-concept h3,
+.persona-connector h3 {
+    font-size: 1.05rem;
+    margin: 0;
+}
+
+.feature-step p,
+.persona-connector p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.55;
+    margin: 0;
+}
+
+.feature-step pre,
+.persona-connector pre {
+    background: #f1f6ff;
+    border: 1px solid #d6e5ff;
+    border-radius: 6px;
+    color: #123d80;
+    font-size: 0.75rem;
+    line-height: 1.45;
+    margin: 0;
+    overflow-x: auto;
+    padding: 10px 12px;
+    white-space: pre-wrap;
+}
+
+.persona-connector {
+    align-items: center;
+    background: #e7f1ff;
+    border: 1px solid #9ec5fe;
+    border-radius: 8px;
+    display: grid;
+    gap: 28px;
+    grid-template-columns: minmax(180px, 0.8fr) minmax(250px, 1.2fr) minmax(260px, 1fr);
+    margin-top: 16px;
+    padding: 24px;
+}
+
+.persona-connector > div {
+    align-items: center;
+    color: var(--primary-dark);
+    display: flex;
+    gap: 10px;
+}
+
+.persona-connector i {
+    font-size: 1.5rem;
+}
+
+/* --- Decision Loop --- */
+#decision-loop-steps {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.decision-step {
+    background: #fff;
+    border: 1px solid #dce5f1;
+    border-radius: 8px;
+    display: grid;
+    gap: 5px;
+    min-height: 110px;
+    padding: 16px;
+}
+
+.decision-step-number {
+    color: var(--primary-color);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+.decision-step strong {
+    font-size: 0.98rem;
+    line-height: 1.25;
+}
+
+.decision-step small {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    line-height: 1.35;
+}
+
+.decision-step--outcome {
+    background: #e7f1ff;
+    border-color: #9ec5fe;
+    grid-column: 1 / -1;
+}
+
+.decision-loop-return {
+    align-items: center;
+    color: var(--text-muted);
+    display: flex;
+    font-size: 0.82rem;
+    gap: 8px;
+    line-height: 1.45;
+    margin-top: 14px;
+}
+
+.decision-loop-return i {
+    color: var(--primary-color);
+    font-size: 1.25rem;
+}
+
 /* --- Capability Pills (Core Features) --- */
 .capability-card {
     display: flex;
@@ -197,5 +354,19 @@ section {
     
     .nav-link {
         padding: 10px 0;
+    }
+
+    .feature-step,
+    .persona-connector {
+        gap: 14px;
+        grid-template-columns: 1fr;
+    }
+
+    #decision-loop-steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .decision-step--outcome {
+        grid-column: auto;
     }
 }
